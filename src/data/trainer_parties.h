@@ -3209,21 +3209,32 @@ static const struct TrainerMon sParty_Roxanne1[] = {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
     .lvl = 12,
     .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .ability = ABILITY_SAND_VEIL,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .moves = {MOVE_ROCK_POLISH, MOVE_DEFENSE_CURL, MOVE_BULLDOZE, MOVE_ROLLOUT}
     },
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .lvl = 13,
+    .species = SPECIES_LYCANROC,
+    .ability = ABILITY_SAND_RUSH,
+    .heldItem = ITEM_ROCK_GEM,
+    .moves = {MOVE_ACCELEROCK, MOVE_SUCKER_PUNCH, MOVE_ROCK_THROW, MOVE_SAND_ATTACK}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 13,
+    .species = SPECIES_LYCANROC_DUSK,
+    .ability = ABILITY_TOUGH_CLAWS,
+    .heldItem = ITEM_CHOICE_BAND,
+    .moves = {MOVE_ACCELEROCK, MOVE_CRUSH_CLAW, MOVE_ROCK_THROW, MOVE_REVERSAL}
     },
     {
     .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
     .lvl = 15,
     .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_ORAN_BERRY,
+    .ability = ABILITY_SAND_FORCE,
+    .heldItem = ITEM_BERRY_JUICE,
     .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
     }
 };
