@@ -3413,6 +3413,14 @@ static const struct TrainerMon sParty_Winona1[] = {
     .moves = {MOVE_QUIVER_DANCE, MOVE_REVELATION_DANCE, MOVE_FEATHER_DANCE, MOVE_ROOST}
     },
     {
+    .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
+    .lvl = 31,
+    .species = SPECIES_ORICORIO_SENSU,
+    .ability = ABILITY_DANCER,
+    .heldItem = ITEM_PERSIM_BERRY,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_REVELATION_DANCE, MOVE_FEATHER_DANCE, MOVE_ROOST}
+    },
+    {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 33,
     .species = SPECIES_ALTARIA,
