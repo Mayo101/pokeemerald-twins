@@ -80,7 +80,10 @@ Route111_EventScript_CheckSetSandstorm::
 	goto_if_lt VAR_TEMP_0, 8, Route111_EventScript_EndCheckSetSandstorm
 Route111_EventScript_SetSandstorm::
 	setweather WEATHER_SANDSTORM
+	setvar VAR_ROUTE111_WILD_SET, 1
+	return
 Route111_EventScript_EndCheckSetSandstorm::
+	setvar VAR_ROUTE111_WILD_SET, 0
 	return
 
 Route111_EventScript_SetWinstratesNotDefeated::
