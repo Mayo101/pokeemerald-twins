@@ -8993,7 +8993,33 @@ static const struct TrainerMon sParty_Sarah[] = {
 static const struct TrainerMon sParty_Darian[] = {
     {
     .lvl = 9,
-    .species = SPECIES_MAGIKARP,
+    .species = SPECIES_BASCULIN_WHITE_STRIPED,
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_BASCULIN_BLUE_STRIPED,
+    }
+};
+
+static const struct TrainerMon sParty_Randulf[] = {
+    {
+    .lvl = 9,
+    .species = SPECIES_SHELLDER,
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_SKRELP,
+    }
+};
+
+static const struct TrainerMon sParty_Svenja[] = {
+    {
+    .lvl = 9,
+    .species = SPECIES_MANTYKE,
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_CORPHISH,
     }
 };
 

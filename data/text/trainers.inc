@@ -416,16 +416,34 @@ Route104_Text_CindyPostRematch:
 	.string "I hope we meet again.$"
 
 Route104_Text_DarianIntro:
-	.string "I fished up a tough-looking POKéMON!\p"
-	.string "It has this magical quality to it!\n"
-	.string "It surely looks tough, yes it does!$"
+	.string "I fished up a cool-looking POKéMON!\p"
+	.string "It has this shiny quality to it!\n"
+	.string "It surely looks cool, yes it does!$"
 
 Route104_Text_DarianDefeat:
 	.string "What the…$"
 
 Route104_Text_DarianPostBattle:
-	.string "Hey, MAGIKARP, you sure don't live up\n"
-	.string "to your name, do you?$"
+	.string "Hey, you sure didn't live up!$"
+
+Route104_Text_RandulfIntro:
+	.string "Why is the sea blue?\n"
+	.string "because fish go blueblueblue.$"
+
+Route104_Text_RandulfDefeat:
+	.string "I'm as bad as my jokes.$"
+
+Route104_Text_RandulfPostBattle:
+	.string "Now I'm blue…$"
+
+Route104_Text_SvenjaIntro:
+	.string "I love playing in the sand.$"
+
+Route104_Text_SvenjaDefeat:
+	.string "Oh well…$"
+
+Route104_Text_SvenjaPostBattle:
+	.string "Maybe next time…$"
 
 Route105_Text_FosterIntro:
 	.string "There's supposed to be a mystical\n"

@@ -21,23 +21,28 @@ Route104_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
-		getplayerxy VAR_0x8008, VAR_0x8009
-	compare VAR_0x8009, 30
-	goto_if_le Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
-	compare VAR_0x8009, 30
-	goto_if_gt Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_3
-Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	call Route104_EventScript_SetEncounterGroup
 	end
 
-Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
-	setvar VAR_ROUTE104NORTH_WILD_SET, 1
-	goto Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+Route104_EventScript_SetEncounterGroup::
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	goto_if_lt VAR_TEMP_1, 30, Route104_EventScript_SetEncounterGroupNorth
+	goto_if_gt VAR_TEMP_1, 38, Route104_EventScript_SetEncounterGroupSouth
+Route104_EventScript_SetEncounterGroupNorth::
+	setvar VAR_ROUTE104_WILD_SET, 1
+	return
+Route104_EventScript_SetEncounterGroupSouth::
+	setvar VAR_ROUTE104_WILD_SET, 0
+	return
 
-Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_3:
-	setvar VAR_ROUTE104NORTH_WILD_SET, 0
-	goto Route_104_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+Route104_EventScript_SetEncounterGroupSouthTrigger::
+	setvar VAR_ROUTE104_WILD_SET, 0
+	end
 
-
+Route104_EventScript_SetEncounterGroupNorthTrigger::
+	setvar VAR_ROUTE104_WILD_SET, 1
+	end
+	
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::
 	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_EventScript_HideWhiteHerbFlorist
 	goto_if_unset FLAG_BADGE03_GET, Route104_EventScript_HideWhiteHerbFlorist
@@ -1012,6 +1017,16 @@ Route104_EventScript_Mia::
 Route104_EventScript_Darian::
 	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Randulf::
+	trainerbattle_single TRAINER_RANDULF, Route104_Text_RandulfIntro, Route104_Text_RandulfDefeat
+	msgbox Route104_Text_RandulfPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Svenja::
+	trainerbattle_single TRAINER_SVENJA, Route104_Text_SvenjaIntro, Route104_Text_SvenjaDefeat
+	msgbox Route104_Text_SvenjaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_Text_BrineyLivesInSeasideCottage:
