@@ -227,7 +227,7 @@ LittlerootTown_ProfessorBirchsLab_OnFrame:
 # 114 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 @ This is just where the game tells you its yours and lets you nickname it
 # 115 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent_UNUSED::
 # 116 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	lockall
 # 117 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -251,7 +251,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
 # 126 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 
 # 127 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter::
+LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter_UNUSED::
 # 128 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	setvar VAR_0x8004, 0
 # 129 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -2002,3 +2002,170 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … …\n"
 # 1002 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
+# 1005 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	lockall
+# 1006 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	bufferleadmonspeciesname STR_VAR_1
+# 1007 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	message LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon
+# 1008 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitmessage
+# 1009 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 1010 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitfanfare
+# 1011 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+# 1012 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter
+# 1013 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter::
+# 1018 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	setvar VAR_0x8004, 0
+# 1019 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	call Common_EventScript_NameReceivedPartyMon
+# 1020 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_NicknameTwinStarter::
+# 1025 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	setvar VAR_0x8004, 1
+# 1026 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	call Common_EventScript_NameReceivedPartyMon
+# 1027 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter::
+# 1032 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	lockall
+# 1033 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_0
+# 1034 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	dynmultichoice 0, 0, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_1, LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_2, LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_3
+# 1035 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_2
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_1:
+# 1038 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_5
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_4:
+# 1041 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	compare VAR_RESULT, 2
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_8
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_7:
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_2:
+# 1036 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_1
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_5:
+# 1039 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_4
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_8:
+# 1042 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_7
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude::
+# 1048 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	lockall
+# 1049 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	givemon SPECIES_GEODUDE_ALOLAN, 5
+# 1050 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude_Text_0
+# 1051 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude_Text_1, MSGBOX_YESNO
+# 1052 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameTwinStarter
+# 1053 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee::
+# 1058 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	lockall
+# 1059 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	givemon SPECIES_ROOKIDEE, 5
+# 1060 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee_Text_0
+# 1061 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee_Text_1, MSGBOX_YESNO
+# 1062 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameTwinStarter
+# 1063 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey::
+# 1068 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	lockall
+# 1069 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	givemon SPECIES_MANKEY, 5
+# 1070 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey_Text_0
+# 1071 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey_Text_1, MSGBOX_YESNO
+# 1072 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameTwinStarter
+# 1073 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_0:
+# 1033 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Another One - DJ Khaled$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_1:
+# 1034 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Alolan Geodude$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_2:
+# 1034 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Rookidee$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Text_3:
+# 1034 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Mankey$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude_Text_0:
+# 1050 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "{PLAYER} received Alolan Geodude!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Geodude_Text_1:
+# 1051 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Do you want to nickname your Geodude?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee_Text_0:
+# 1060 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "{PLAYER} received Rookidee!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Rookidee_Text_1:
+# 1061 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Do you want to nickname your Rookidee?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey_Text_0:
+# 1070 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "{PLAYER} received Mankey!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiftTwinStarter_Mankey_Text_1:
+# 1071 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "Do you want to nickname your Mankey?$"
