@@ -320,9 +320,3 @@ script Route101_EventScript_Do_Test_Battle {
 text Test_Battle_Text_1 {
 	"test1 :("
 }
-
-text Test_Battle_Text_2 {
-	"test2 :("
-}
-
-// TRAINER_TEST_2, Test_Battle_Text_2, 
