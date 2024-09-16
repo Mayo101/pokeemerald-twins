@@ -602,3 +602,37 @@ Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 # 302 "data/maps/Route101/scripts.pory"
 	.string "{UP_ARROW} OLDALE TOWN$"
+
+Route101_EventScript_Test_Battle::
+# 306 "data/maps/Route101/scripts.pory"
+	special SavePlayerParty
+# 307 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 308 "data/maps/Route101/scripts.pory"
+	special ChooseHalfPartyForBattle
+# 309 "data/maps/Route101/scripts.pory"
+	waitstate
+# 310 "data/maps/Route101/scripts.pory"
+	goto_if_ne VAR_RESULT, 0, Route101_EventScript_Do_Test_Battle
+	end
+
+
+Route101_EventScript_Do_Test_Battle::
+# 315 "data/maps/Route101/scripts.pory"
+	multi_2_vs_1 TRAINER_TEST_1, Test_Battle_Text_1, TEST_BATTLE_PARTNER, TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN
+# 316 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_Do_Test_Battle_Text_0, MSGBOX_AUTOCLOSE
+	end
+
+
+Route101_EventScript_Do_Test_Battle_Text_0:
+# 316 "data/maps/Route101/scripts.pory"
+	.string "complete$"
+
+Test_Battle_Text_1::
+# 320 "data/maps/Route101/scripts.pory"
+	.string "test1 :($"
+
+Test_Battle_Text_2::
+# 324 "data/maps/Route101/scripts.pory"
+	.string "test2 :($"
